@@ -7,6 +7,7 @@ import RegisterLegal from "./pages/RegisterLegal";
 import SetPassword from "./pages/SetPassword";
 import CompleteProfile from "./pages/CompleteProfile";
 import UserDashboard from "./pages/UserDashboard";
+import Inicio from "./pages/Inicio";
 import PresentDemand from "./pages/PresentDemand";
 import UploadDemand from "./pages/UploadDemand";
 import TrackDemand from "./pages/TrackDemand";
@@ -23,7 +24,8 @@ export default function App() {
     <Router>
       <AnimatePresence mode="wait">
         <Routes>
-          <Route path="/" element={<PageTransition><Login /></PageTransition>} />
+          <Route path="/" element={<PageTransition><Inicio /></PageTransition>} />
+          <Route path="/login" element={<PageTransition><Login /></PageTransition>} />
           <Route path="/register-user" element={<PageTransition><RegisterUser /></PageTransition>} />
           <Route path="/register-admin" element={<PageTransition><RegisterAdmin /></PageTransition>} />
           <Route path="/register-legal" element={<PageTransition><RegisterLegal /></PageTransition>} />

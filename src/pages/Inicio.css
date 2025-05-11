@@ -1,0 +1,164 @@
+.pagina {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    color: #333;
+    animation: fadeIn 1.2s ease-in;
+    width: 100vw;
+    padding: 2rem 1rem;
+    box-sizing: border-box;
+  }
+  /*
+  .logo {
+    text-align: center;
+    font-size: 2.8rem;
+    font-weight: bold;
+    color: #7a1fa2;
+    margin-bottom: 2rem;
+    position: relative;
+    max-width: 600px;
+    margin: 1.5rem auto;
+  }
+
+  .logo::before {
+    content: 'Logo';
+    position: absolute;
+    left: 1.5rem;
+    font-size: 1rem;
+    top: -0.5rem;
+  }
+*/
+  .logo {
+    position: relative;
+    text-align: center;
+    font-size: 2.8rem;
+    font-weight: bold;
+    color: #7a1fa2;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    max-width: 600px;
+    margin: 1.5rem auto;
+  }
+  .logo-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    animation: rotateIn 1.2s ease-in-out;
+    object-fit: cover;
+  }
+
+  .card {
+    border: 2px solid #b39ddb;
+    border-radius: 2rem;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    animation: slideUp 0.8s ease-out;
+    width: 100%;
+    margin: 1.5rem auto;
+    background-color: rgba(193, 154, 107, 0.041); /* Very Light Background */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Esta línea es la sombra */
+  }
+  
+  .para {
+    font-size: 1.2rem;
+    color: #888;
+    margin-bottom: 0.2rem;
+  }
+  
+  .rol {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .rol.demandado {
+    color: #4a90e2;
+  }
+  
+  .rol.demandante {
+    color: #3a8edb;
+  }
+  
+  .rol.instancia {
+    color: #4093b9;
+  }
+  
+  .btn-grupo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .btn-grupo.uno.btn {
+    width: 120px;
+  }
+  
+  .btn-grupo.doble.btn {
+    flex: 1;
+  }
+  
+  .btn {
+    border: 2px solid #9370db;
+    background-color: #fdfdfd;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-size: 1rem;
+    cursor: pointer;
+    color: #7a1fa2;
+    transition: all 0.2s ease-in-out;
+    min-width: 100px;
+  }
+  
+  .btn:hover {
+    background-color: #ede7f6;
+    transform: scale(1.05);
+    color: #78a8f1;
+  }
+  
+  @keyframes rotateIn {
+    from {
+      transform: rotate(-180deg) scale(0.5);
+      opacity: 0;
+    }
+    to {
+      transform: rotate(0) scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes slideUp {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .card {
+      padding-left: 7vw;
+      padding-right: 7vw;
+    }
+    .card {
+      max-width: 58%; 
+    }
+  
+    .btn {
+      font-size: 1.2rem;
+      padding: 0.75rem 1.5rem;
+    }
+  
+    .rol {
+      font-size: 2.5rem;
+    }
+  }

@@ -47,10 +47,10 @@ export default function RegisterUser() {
         onSubmit={handleSubmit}
         className="bg-white p-8 rounded-2xl shadow-xl w-full max-w-md space-y-6"
       >
-        <h2 className="text-2xl font-bold text-center text-blue-600">Registro de Usuario</h2>
+        <h2 className="text-2xl font-bold text-center text-blue-600">Registro de Demandante</h2>
 
         <div>
-          <label className="block text-sm font-medium">Nombre completo</label>
+          <label className="block text-sm font-medium">Nombre completo  </label>
           <input
             type="text"
             name="nombre"
@@ -62,7 +62,7 @@ export default function RegisterUser() {
         </div>
 
         <div>
-          <label className="block text-sm font-medium">Correo electrónico</label>
+          <label className="block text-sm font-medium">Correo electrónico  </label>
           <input
             type="email"
             name="correo"
@@ -74,7 +74,7 @@ export default function RegisterUser() {
         </div>
 
         <div>
-          <label className="block text-sm font-medium">Teléfono</label>
+          <label className="block text-sm font-medium">Teléfono  </label>
           <input
             type="tel"
             name="telefono"

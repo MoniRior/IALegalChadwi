@@ -38,7 +38,7 @@ export default function Login() {
         <h2 className="text-2xl font-bold text-center text-blue-600">Iniciar Sesión</h2>
 
         <div>
-          <label className="block text-sm font-medium">Correo Electrónico</label>
+          <label className="block text-sm font-medium">Correo Electrónico  </label>
           <input
             type="email"
             value={email}
@@ -48,7 +48,7 @@ export default function Login() {
         </div>
 
         <div>
-          <label className="block text-sm font-medium">Contraseña</label>
+          <label className="block text-sm font-medium">Contraseña  </label>
           <input
             type="password"
             value={password}
