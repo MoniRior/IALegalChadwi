@@ -156,3 +156,214 @@ label {
     color: white;
     transform: translateX(4px);
 }
+
+/* === User Dashboard Enhancements === */
+
+.dashboard-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 1.5rem 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  animation: fadeIn 0.4s ease;
+}
+
+.dashboard-header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.dashboard-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.dashboard-card {
+  background: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-card h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.dashboard-card p {
+  color: #666666;
+  font-size: 0.95rem;
+}
+
+.dashboard-icon {
+  width: 2rem;
+  height: 2rem;
+  color: var(--primary-color);
+}
+
+/* Botón logout refinado */
+.logout-btn {
+  background-color: #ef4444;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logout-btn:hover {
+  background-color: #dc2626;
+  transform: scale(1.03);
+}
+
+
+/* Estilos personalizados para el Centro de Ayuda */
+
+.help-container {
+  background: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  padding: 2.5rem;
+  margin-top: 2rem;
+  animation: fadeIn 0.4s ease;
+}
+
+.help-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.help-header h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.faq-card {
+  background-color: var(--secondary-color);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease;
+}
+
+.faq-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.12);
+}
+
+.faq-card h3 {
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-size: 1.125rem;
+}
+
+.faq-card p {
+  color: #444;
+  line-height: 1.6;
+}
+
+/* Botón para conversar con la IA */
+.ai-chat-button {
+  margin-top: 3rem;
+  padding: 1rem 1.5rem;
+  background-color: var(--accent-color);
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: var(--shadow);
+}
+
+.ai-chat-button:hover {
+  background-color: #ff9ec5;
+  transform: scale(1.03);
+}
+
+/**/
+
+
+
+.faq-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* Más separación entre tarjetas */
+}
+
+.faq-card {
+  background-color: var(--secondary-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  padding: 1.5rem 2rem;
+  cursor: pointer;
+  max-width: 500px;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.faq-card:hover {
+  background-color: #c6e6f5;
+  transform: translateY(-2px);
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--primary-color);
+}
+
+.faq-answer {
+  margin-top: 0.75rem;
+  color: #333;
+  line-height: 1.6;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+  overflow: hidden;
+}
+
+.faq-answer.collapsed {
+  max-height: 0;
+  opacity: 0;
+}
+
+.faq-answer.expanded {
+  max-height: 500px;
+  opacity: 1;
+}

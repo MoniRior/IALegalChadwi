@@ -17,7 +17,11 @@ export default function Login() {
 
     // Simular login correcto
     if (email === "usuario@correo.com" && password === "Password123") {
-      navigate("/dashboard");
+      localStorage.setItem(
+        "user",
+        JSON.stringify({ name: "Saul Rodas  ", email: "usuario@correo.com" })
+      );
+      setTimeout(() => navigate("/dashboard"), 100); // Espera mínima para asegurar persistencia
     } else {
       setError("Credenciales incorrectas.");
     }

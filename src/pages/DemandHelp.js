@@ -1,47 +1,88 @@
-import { motion } from "framer-motion";
-import { HelpCircle } from "lucide-react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { HelpCircle, ChevronDown, ChevronUp } from "lucide-react";
+import { Bot } from "lucide-react";
 
 const faq = [
   {
     question: "¿Cómo presento una demanda?",
-    answer: "Debes llenar el formulario en la sección 'Presentar Demanda' y adjuntar los documentos requeridos."
+    answer:
+      "Debes llenar el formulario en la sección 'Presentar Demanda' y adjuntar los documentos requeridos.",
   },
   {
     question: "¿Dónde puedo hacer seguimiento a mi demanda?",
-    answer: "En el panel principal, selecciona 'Seguimiento de Demanda' para ver el estado actual."
+    answer:
+      "En el panel principal, selecciona 'Seguimiento de Demanda' para ver el estado actual.",
   },
   {
     question: "¿A quién puedo contactar si tengo dudas?",
-    answer: "Puedes escribirnos al correo soporte@justiciaapp.com o usar el formulario de contacto."
-  }
+    answer:
+      "Puedes escribirnos al correo soporte@justiciaapp.com o usar el formulario de contacto.",
+  },
 ];
 
 export default function DemandHelp() {
+  const [openIndex, setOpenIndex] = useState(null);
+
+  const toggle = (index) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
   return (
     <motion.div
-      className="max-w-3xl mx-auto p-8 bg-white rounded-xl shadow-xl mt-10"
+      className="help-container max-w-3xl mx-auto"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
     >
-      <div className="flex items-center mb-6">
-        <HelpCircle className="text-indigo-600 mr-2" size={32} />
-        <h2 className="text-2xl font-bold text-indigo-700">Centro de Ayuda</h2>
+      <div className="help-header">
+        <HelpCircle className="text-indigo-600" size={32} />
+        <h2>Centro de Ayuda</h2>
       </div>
 
-      <div className="space-y-6">
+      <div className="faq-container">
         {faq.map((item, index) => (
-          <motion.div
+          <div
             key={index}
-            className="bg-indigo-50 p-4 rounded-lg shadow"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.1 }}
+            className="faq-card"
+            onClick={() => toggle(index)}
+            role="button"
+            tabIndex={0}
           >
-            <h3 className="text-indigo-800 font-semibold">{item.question}</h3>
-            <p className="text-gray-700 mt-1">{item.answer}</p>
-          </motion.div>
+            <div className="faq-question">
+              {item.question}
+              {openIndex === index ? (
+                <ChevronUp size={20} />
+              ) : (
+                <ChevronDown size={20} />
+              )}
+            </div>
+
+            <AnimatePresence>
+              {openIndex === index && (
+                <motion.div
+                  className="faq-answer expanded"
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  {item.answer}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
         ))}
+      </div>
+
+      <div className="flex justify-center">
+        <button
+          className="ai-chat-button"
+          onClick={() => alert("Abriendo chat con la IA...")} // reemplaza con navegación real si existe
+        >
+          <Bot className="w-5 h-5" />
+          Conversar con la IA
+        </button>
       </div>
     </motion.div>
   );
