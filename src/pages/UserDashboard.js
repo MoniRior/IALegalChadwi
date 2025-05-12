@@ -32,7 +32,7 @@ export default function UserDashboard() {
       title: "Perfil",
       description: "Edita tu información personal y preferencias.",
       icon: <UserCircle className="dashboard-icon" />,
-      onClick: () => navigate("/perfil"),
+      onClick: () => navigate("/complete-profile"),
     },
     {
       title: "Historial",

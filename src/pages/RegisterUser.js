@@ -88,6 +88,7 @@ export default function RegisterUser() {
         <div className="pt-4">
           <button
             type="submit"
+            onClick={() =>navigate("/complete-profile")}
             className="w-full bg-blue-600 text-white py-2 px-4 rounded-xl hover:bg-blue-700 transition"
           >
             Continuar

@@ -1,5 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Cal+Sans&family=Cascadia+Code:ital,wght@0,200..700;1,200..700&display=swap');
 .pagina {
-    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-family: "Cal Sans", cursive, sans-serif;
     color: #333;
     animation: fadeIn 1.2s ease-in;
     width: 100vw;
