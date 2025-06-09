@@ -40,7 +40,7 @@ El enfoque principal del proyecto es facilitar el acceso a servicios legales, op
 
 ## Estructura del Proyecto
 
-
+```
 IALegalChadwi/
 ├── public/                 # Archivos estáticos
 ├── src/
@@ -53,7 +53,7 @@ IALegalChadwi/
 ├── package.json
 ├── package-lock.json
 └── README.md
-
+```
 ---
 
 ## Instalación y Ejecución Local
