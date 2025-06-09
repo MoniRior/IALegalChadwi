@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import { collection, getDocs, query, where } from 'firebase/firestore';
+import { db } from '../index';
 
 export default function Login() {
   const navigate = useNavigate();
@@ -8,15 +10,42 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     if (email === "" || password === "") {
       setError("Todos los campos son obligatorios.");
       return;
     }
 
+    try{
+      const q = query(
+        collection(db, "Usuarios"),
+        where("correo", "==", email),
+        where("password", "==", password)
+      );
+      const querySnapshot = await getDocs(q);
+
+      if(!querySnapshot.empty){
+        const userData = querySnapshot.docs[0].data();
+        const sessionUser = {
+          name: userData.nombre || "Usuario",
+          email: userData.correo || email,
+          tipo: userData.tipo || "sin-rol"
+        };
+        localStorage.setItem(
+          "user",
+          JSON.stringify({ name: userData.nombre , email: userData.correo })
+        );
+        setTimeout(() => navigate("/dashboard"), 100);
+      } else {
+        setError("Credenciales incorrectas.");
+      }
+    } catch (error) {
+      console.error("Error al iniciar sesión:", error);
+      setError("Error al iniciar sesión. Por favor, inténtalo de nuevo.");
+    }
     // Simular login correcto
-    if (email === "usuario@correo.com" && password === "Password123") {
+   /* if (email === "usuario@correo.com" && password === "Password123") {
       localStorage.setItem(
         "user",
         JSON.stringify({ name: "Saul Rodas  ", email: "usuario@correo.com" })
@@ -24,7 +53,7 @@ export default function Login() {
       setTimeout(() => navigate("/dashboard"), 100); // Espera mínima para asegurar persistencia
     } else {
       setError("Credenciales incorrectas.");
-    }
+    }*/
   };
 
   return (

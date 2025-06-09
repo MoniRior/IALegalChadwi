@@ -6,7 +6,7 @@ import { Menu, X, Home, FilePlus, Search, LogOut, HelpCircle, Asterisk, StickyNo
 const menuItems = [
   { label: "Inicio", icon: <Home size={20} />, path: "/dashboard" },
   { label: "Presentar Demanda", icon: <FilePlus size={20} />, path: "/present-demand" },
-  { label: "Demandas Activas", icon: <StickyNote size={20} />, path: "/view-demand" },
+  { label: "Demandas Activas", icon: <StickyNote size={20} />, path: "/track-demand" },
   { label: "Subir Documentos", icon: <FilePlus size={20} />, path: "/upload-documents" },
   { label: "Historial", icon: <Search size={20} />, path: "/track-demand" },
   { label: "Cambiar contraseña", icon: <Asterisk size={20} />, path: "/set-password" },

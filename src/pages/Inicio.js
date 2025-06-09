@@ -15,7 +15,7 @@ const Inicio = () => {
         <p className="para">Para</p>
         <h2 className="rol demandado">Demandados</h2>
         <div className="btn-grupo uno">
-          <button className="btn" onClick={() => navigate("/login")}>Log In</button>
+          <button className="btn" onClick={() => navigate("/login-b")}>Log In</button>
         </div>
       </div>
 
@@ -32,7 +32,7 @@ const Inicio = () => {
         <p className="para">Para</p>
         <h2 className="rol instancia">Instancias Legales</h2>
         <div className="btn-grupo doble">
-          <button className="btn" onClick={() => navigate("/login")}>Log In</button>
+          <button className="btn" onClick={() => navigate("/login-legal")}>Log In</button>
           <button className="btn" onClick={() => navigate("/register-legal")}>Sign Up</button>
         </div>
       </div>
