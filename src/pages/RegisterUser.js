@@ -1,8 +1,9 @@
-import { useState } from "react";
-import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom";
-import { collection, addDoc } from 'firebase/firestore';
-import { db } from '../index';
+import React, { useState } from "react";
+import { motion }          from "framer-motion";
+import { useNavigate }     from "react-router-dom";
+import { auth, db } from '../services/firebase';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { doc, setDoc, serverTimestamp }      from 'firebase/firestore';
 
 export default function RegisterUser() {
   const navigate = useNavigate();
@@ -11,7 +12,7 @@ export default function RegisterUser() {
     nombre: "",
     correo: "",
     telefono: "",
-    tipo: "demandante",
+    tipo: "demandante", 
     password: "",
     calle: "",
     codigoPostal: "",
@@ -58,7 +59,35 @@ export default function RegisterUser() {
         setStep(step + 1);
       } else {
         try {
-          await addDoc(collection(db, "Usuarios"), formData);
+          // 1) Crear cuenta en Firebase Auth
+          const userCred = await createUserWithEmailAndPassword(
+            auth,
+            formData.correo,
+            formData.password
+          );
+          const { uid } = userCred.user;
+
+          // 2) Guardar datos en Firestore bajo Usuarios/{uid}, incluyendo roles
+          await setDoc(doc(db, "Usuarios", uid), {
+            nombre:       formData.nombre,
+            correo:       formData.correo,
+            telefono:     formData.telefono,
+            direccion: {
+              calle:        formData.calle,
+              codigoPostal: formData.codigoPostal,
+              ciudad:       formData.ciudad
+            },
+            genero:       formData.genero,
+            nacimiento:   formData.nacimiento,
+            roles: {
+              demandante:     formData.tipo === "demandante",
+              demandado:      formData.tipo === "demandado",
+              instanciaLegal: formData.tipo === "instanciaLegal"
+            },
+            createdAt:    serverTimestamp()
+          });
+          
+          // 3) Redirigir
           navigate("/dashboard");
         } catch (error) {
           console.error("Error al registrar el usuario:", error);

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { collection, addDoc } from 'firebase/firestore';
-import { db } from '../index';
+import { db } from '../services/firebase'; 
 
 export default function RegisterLegal() {
   const [form, setForm] = useState({

@@ -14,8 +14,8 @@ import {
 
 const menuItems = [
     { label: "Inicio", icon: <Home size={20} />, path: "/legal-dashboard" },
-    { label: "Demandas", icon: <FileText size={20} />, path: "/review-demands" },
-    { label: "Responder", icon: <Send size={20} />, path: "/legal-respond" },
+    { label: "Demandas", icon: <FileText size={20} />, path: "/legal/demandas" },
+    { label: "Responder", icon: <Send size={20} />, path: "/legal/respondedor" },
     { label: "Registrar Usuario", icon: <Users size={20} />, path: "/register-userlegal" },
     { label: "Notificaciones", icon: <BellRing size={20} />, path: "/notifications" },
     { label: "Cambiar contraseña", icon: <Asterisk size={20} />, path: "/set-password" },

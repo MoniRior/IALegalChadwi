@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { collection, getDocs, query, where } from 'firebase/firestore';
-import { db } from '../index';
+import { db } from '../services/firebase'; 
 
 export default function LoginLegal() {
   const navigate = useNavigate();
@@ -12,6 +12,7 @@ export default function LoginLegal() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    
     if (email === "" || password === "") {
       setError("Todos los campos son obligatorios.");
       return;

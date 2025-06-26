@@ -8,6 +8,7 @@ export default function RespondDemand() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
     if (response.trim()) {
       // Aquí se enviaría la respuesta al backend
       setSubmitted(true);

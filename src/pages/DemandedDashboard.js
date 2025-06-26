@@ -38,7 +38,7 @@ export default function LegalDashboard() {
       title: "Historial",
       description: "Revisa tus actividades recientes.",
       icon: <History className="dashboard-icon" />,
-      onClick: () => navigate("/track-demand"),
+      onClick: () => navigate("/demandado/demandas"),
     },
     {
       title: "Soporte",

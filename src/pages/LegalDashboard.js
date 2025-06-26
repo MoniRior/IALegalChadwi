@@ -30,7 +30,7 @@ export default function LegalDashboard() {
       title: "Demandas Recibidas",
       description: "Revisa, gestiona y responde las demandas activas.",
       icon: <FileText className="dashboard-icon" />,
-      onClick: () => navigate("/review-demands"),
+      onClick: () => navigate("/legal/demandas"),
     },
     {
       title: "Registrar Usuario",
