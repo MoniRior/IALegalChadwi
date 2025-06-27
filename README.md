@@ -123,6 +123,7 @@ Autores principales:
 * Thania P. EG
 * J. Antonio CA
 * José C. EM
+* Montserrat R. O
 
 Asesor académico: Chadwi
 
